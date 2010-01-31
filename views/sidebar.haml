@@ -1,0 +1,23 @@
+#sidebar.grid_3.suffix_2
+  %h3 Location
+  %img{:src => '/images/location.png'}
+  %p
+    Mount Pleasant, SC
+    %br
+    %a{:href => 'http://www.jackhq.com'} www.JACKHQ.com
+    
+  %h3 Articles
+  %ul
+    - Dir.glob('views/posts/*.rdiscount').each do |article|
+      %li
+        %a{:href => "/#{article.gsub('views/posts/','').gsub('.rdiscount','')}"}=   article.gsub('views/posts/','').gsub('.rdiscount','').humanize
+
+  %p
+    %a{:href => '#', :style => 'float:right'} More
+    
+  %h3 Team
+  %ul
+    %li Tom Wilson
+    %li Andrew Kennedy
+    %li Barrett Little
+    %li Russell Niller

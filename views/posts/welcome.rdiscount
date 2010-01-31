@@ -1,0 +1,33 @@
+## Welcome to blog.JACKHQ.com
+
+Welcome to blog.JACKHQ.com the official blog of Jack Russell Software.  We have been developing Ruby and Rails apps for over 2 years and continue to grow and learn about web and cloud technology.  This blog will contain posts of issues we feel is worth talking about.
+
+## We have been busy
+
+While working countless hours for our clients, we have also been working on cloud infrastructure deployment and back office web services.  We are in the process of releasing a cloud deployment gem called "Hugo".  This gem is not meant to be the end all of all deployment technologies.  It is just one we use to deploy to our Amazon EC2 infrastructure and we thought that others could also benefit from its simplicity.  It does come with some requirements:
+
+* Git
+* Github.com
+* Amazon EC2
+* Amazon RDS
+* Amazon ELB
+
+But it is shaping up to be a nice dsl:
+
+    # 
+    Hugo do
+      cloud "my_awesome_cloud" do
+        database "myapp_production" do
+          username "myuser"
+          password "password"
+        end
+
+        balancer
+
+        app "myapp" do
+          servers 2
+        end
+      end
+    end
+
+Using this new dsl, it makes it simple to designate the database server and load balancer, and the amount of app servers you want to load.  And each time you are ready to deploy, simply run your configuration file and it will re-deploy.

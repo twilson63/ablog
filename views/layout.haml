@@ -1,0 +1,19 @@
+!!!
+%html{ :xmlns => "http://www.w3.org/1999/xhtml", :lang => "en", 'xml:lang' => "en" }
+  %head
+    %title blog.jackhq.com
+    - ['reset','text','960','zenburn','app'].each do |css|
+      %link{ :href => "/stylesheets/#{css}.css", :rel => "stylesheet", :type => "text/css", :media => "screen", :charset => "utf-8" }
+  %body
+    #header
+      = haml :header, :layout => false
+    #wrap
+      .container_16
+        = yield
+    .clear
+    #footer
+      = haml :footer, :layout => false
+      
+    - ['jquery-1.4.1.min','highlight.pack','app'].each do |js|
+      %script{:src => "/javascripts/#{js}.js", :type => 'text/javascript'}
+      
